@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://dda7rumat4ksr"]
 
 [ext_resource type="PackedScene" uid="uid://b3f37gv756mx" path="res://Scenes/player.tscn" id="1_0gevy"]
+[ext_resource type="Texture2D" uid="uid://bwpscbt4kh5sq" path="res://assets/Floor2.png" id="2_m8co2"]
+[ext_resource type="Script" uid="uid://uiy6hvclf6qd" path="res://Scenes/interactable.gd" id="3_isvj2"]
+[ext_resource type="Texture2D" uid="uid://bcy3puykfy5rc" path="res://assets/test.png" id="4_uu0ng"]
+[ext_resource type="Script" uid="uid://dv3pbae5mciri" path="res://Scenes/dialouge.gd" id="5_uu0ng"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0gevy"]
 a = Vector2(-30.5, 1701.25)
 b = Vector2(-70.5, -597.75)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ce5me"]
-a = Vector2(4597, 1093)
-b = Vector2(727, 1058)
+a = Vector2(3236, 53)
+b = Vector2(1002, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce5me"]
+size = Vector2(352, 136)
 
 [node name="Room1" type="Node2D" unique_id=2094689066]
 position = Vector2(-286, -410)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=64770330]
-offset_left = 375.0
-offset_top = 514.0
-offset_right = 3124.0
-offset_bottom = 2108.0
-color = Color(0.019607844, 0.13725491, 0.14509805, 1)
-
 [node name="Player" parent="." unique_id=2025846468 instance=ExtResource("1_0gevy")]
-position = Vector2(1226, 1038)
+position = Vector2(772, 751)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1108526331]
 position = Vector2(-209, 283)
@@ -34,7 +34,7 @@ shape = SubResource("SegmentShape2D_0gevy")
 position = Vector2(2553, 247)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=762244508]
-position = Vector2(620.5, 416.75)
+position = Vector2(-1017, -197)
 shape = SubResource("SegmentShape2D_0gevy")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1258957752]
@@ -48,5 +48,93 @@ shape = SubResource("SegmentShape2D_ce5me")
 position = Vector2(-788, -616)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1926247294]
-position = Vector2(-21, 29)
+position = Vector2(-364, 943)
 shape = SubResource("SegmentShape2D_ce5me")
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=738025399]
+z_index = -1
+position = Vector2(429, 744)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor2" type="Sprite2D" parent="." unique_id=2121665984]
+z_index = -1
+position = Vector2(1066, 743)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor3" type="Sprite2D" parent="." unique_id=1183034302]
+z_index = -1
+position = Vector2(1705, 743)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor4" type="Sprite2D" parent="." unique_id=961958427]
+z_index = -1
+position = Vector2(409, 1384.9995)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor5" type="Sprite2D" parent="." unique_id=313613227]
+z_index = -1
+position = Vector2(1047, 1384)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor7" type="Sprite2D" parent="." unique_id=1939032081]
+z_index = -1
+position = Vector2(1391.9999, 102.000244)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor8" type="Sprite2D" parent="." unique_id=1555011563]
+z_index = -1
+position = Vector2(757, 102)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Floor9" type="Sprite2D" parent="." unique_id=1900366359]
+z_index = -1
+position = Vector2(116, 105)
+scale = Vector2(0.1996314, 0.20025583)
+texture = ExtResource("2_m8co2")
+
+[node name="Table" type="Area2D" parent="." unique_id=656659245]
+script = ExtResource("3_isvj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Table" unique_id=1741247673]
+position = Vector2(1032, 505)
+scale = Vector2(0.294705, 0.19753088)
+texture = ExtResource("4_uu0ng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table" unique_id=294987024]
+position = Vector2(1033, 502)
+shape = SubResource("RectangleShape2D_ce5me")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1721621553]
+script = ExtResource("5_uu0ng")
+
+[node name="Panel" type="Panel" parent="UI" unique_id=907628410]
+custom_minimum_size = Vector2(400, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -629.0
+offset_right = -26.0
+offset_bottom = -414.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Panel" unique_id=1611913073]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/Panel/MarginContainer" unique_id=1137347143]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+text = "The table"
+vertical_alignment = 1
+autowrap_mode = 3

@@ -34,9 +34,11 @@ animations = [{
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1161390530]
+position = Vector2(0, -1)
 
 [node name="Character" type="Sprite2D" parent="." unique_id=773413199]
-position = Vector2(2, -37)
+visible = false
+position = Vector2(0, -36)
 scale = Vector2(0.3403491, 0.3066667)
 texture = ExtResource("2_vgqql")
 
@@ -47,5 +49,6 @@ shape = SubResource("CircleShape2D_ce5me")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=540486996]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627632360]
+scale = Vector2(0.50029415, 0.50024563)
 sprite_frames = SubResource("SpriteFrames_2tox5")
 animation = &"idle"
