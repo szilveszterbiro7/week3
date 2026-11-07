@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cb3myih8xi3jx" path="res://assets/reception.png" id="6_gn78r"]
 [ext_resource type="Script" uid="uid://c34ywk2au2win" path="res://Scenes/bell.gd" id="7_vxiu1"]
 [ext_resource type="Texture2D" uid="uid://d3e703tghr2i1" path="res://assets/Bell.png" id="8_xf8eb"]
+[ext_resource type="Script" uid="uid://dysebp4hkdkcl" path="res://Scenes/table_inspect.gd" id="9_8ybfm"]
+[ext_resource type="Texture2D" uid="uid://b3pa7wi4gs8nj" path="res://assets/Tabletop.png" id="9_xf8eb"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0gevy"]
 a = Vector2(-13, 1121)
@@ -102,6 +104,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -112.0
+offset_right = 30.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -141,6 +147,31 @@ texture = ExtResource("8_xf8eb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bell" unique_id=631054143]
 position = Vector2(322, 896)
 shape = SubResource("CircleShape2D_ce5me")
+
+[node name="Tabletop" type="CanvasLayer" parent="." unique_id=479315647]
+script = ExtResource("9_8ybfm")
+
+[node name="Background" type="TextureRect" parent="Tabletop" unique_id=646612380]
+offset_left = 55.0
+offset_top = 71.0
+offset_right = 1111.0
+offset_bottom = 601.0
+texture = ExtResource("9_xf8eb")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="Tabletop" unique_id=1679432558]
+offset_left = 494.0
+offset_top = 496.0
+offset_right = 649.0
+offset_bottom = 528.0
+text = "RECEPTION DESK"
+
+[node name="CloseButton" type="Button" parent="Tabletop" unique_id=334965346]
+offset_left = 77.0
+offset_top = 92.0
+offset_right = 393.0
+offset_bottom = 162.0
+text = "BACK (ESC)"
 
 [connection signal="body_entered" from="Table" to="Table" method="_on_body_entered"]
 [connection signal="body_exited" from="Table" to="Table" method="_on_body_exited"]
