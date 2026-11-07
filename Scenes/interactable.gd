@@ -1,11 +1,11 @@
 extends Area2D
 
 
-@export_multiline var txt: String="There is something wrong with this table..."
+@export_multiline var txt: String="There is something wrong with this table...               Press E to exit."
 
 var player_nearby=false
 
-@onready var dialogue_manager=get_node("/root/Room1/UI")
+@onready var dialogue_manager=get_node("/root/Room1/CanvasLayer")
 
 func _process(_delta):
 	if player_nearby and not dialogue_manager.dialogue_active:
@@ -17,3 +17,4 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.name=="Player":
 		player_nearby=false
+		
