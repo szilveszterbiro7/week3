@@ -31,6 +31,9 @@ size = Vector2(130.25, 244)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ce5me"]
 radius = 143.01399
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce5me"]
+bg_color = Color(1, 1, 0.8980392, 1)
+
 [node name="Room1" type="Node2D" unique_id=2094689066]
 position = Vector2(-286, -410)
 
@@ -152,18 +155,18 @@ shape = SubResource("CircleShape2D_ce5me")
 script = ExtResource("9_8ybfm")
 
 [node name="Background" type="TextureRect" parent="Tabletop" unique_id=646612380]
-offset_left = 55.0
-offset_top = 71.0
-offset_right = 1111.0
-offset_bottom = 601.0
+offset_left = 53.0
+offset_top = 65.0
+offset_right = 1109.0
+offset_bottom = 595.0
 texture = ExtResource("9_xf8eb")
 expand_mode = 1
 
 [node name="Title" type="Label" parent="Tabletop" unique_id=1679432558]
-offset_left = 494.0
-offset_top = 496.0
-offset_right = 649.0
-offset_bottom = 528.0
+offset_left = 519.0
+offset_top = 492.0
+offset_right = 659.0
+offset_bottom = 524.0
 text = "RECEPTION DESK"
 
 [node name="CloseButton" type="Button" parent="Tabletop" unique_id=334965346]
@@ -172,6 +175,52 @@ offset_top = 92.0
 offset_right = 393.0
 offset_bottom = 162.0
 text = "BACK (ESC)"
+
+[node name="Paper" type="Button" parent="Tabletop" unique_id=1398850762]
+offset_left = 270.0
+offset_top = 208.0
+offset_right = 490.0
+offset_bottom = 276.0
+text = "DOCUMENTS"
+
+[node name="Letter" type="Panel" parent="Tabletop" unique_id=460216552]
+offset_left = 328.0
+offset_top = 119.0
+offset_right = 864.0
+offset_bottom = 519.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce5me")
+
+[node name="LetterText" type="Label" parent="Tabletop/Letter" unique_id=341838898]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 17.0
+offset_right = 497.0
+offset_bottom = 364.0
+theme_override_colors/font_color = Color(0.12375746, 0.041011147, 0.018208504, 1)
+theme_override_font_sizes/font_size = 23
+text = "                                 ROOM 6
+
+Dear Guest!
+Your room has been prepared!
+Remember that the caretaker is the last to leave.
+
+Enjoy your stay!"
+autowrap_mode = 3
+
+[node name="LetterClose" type="Button" parent="Tabletop/Letter" unique_id=2069425995]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 343.0
+offset_right = 521.0
+offset_bottom = 389.0
+text = "CLOSE (ESC)"
+
+[node name="Key" type="Button" parent="Tabletop" unique_id=111487760]
+offset_left = 875.0
+offset_top = 173.0
+offset_right = 1018.0
+offset_bottom = 233.0
+text = "CARETAKER'S KEY"
 
 [connection signal="body_entered" from="Table" to="Table" method="_on_body_entered"]
 [connection signal="body_exited" from="Table" to="Table" method="_on_body_exited"]
