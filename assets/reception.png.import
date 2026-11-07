@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv5pqwariph7j"
-path="res://.godot/imported/dordetado.png-f83c1c1a8d2671e625a4712ce7230b8e.ctex"
+uid="uid://cb3myih8xi3jx"
+path="res://.godot/imported/reception.png-ae6b3fd17c1179a9f57b63da965c7dc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dordetado.png"
-dest_files=["res://.godot/imported/dordetado.png-f83c1c1a8d2671e625a4712ce7230b8e.ctex"]
+source_file="res://assets/reception.png"
+dest_files=["res://.godot/imported/reception.png-ae6b3fd17c1179a9f57b63da965c7dc7.ctex"]
 
 [params]
 

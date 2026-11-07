@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b30q7qfrg5ylo" path="res://assets/playerwalk2.png" id="4_x3wgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ce5me"]
-radius = 28.071337
+radius = 36.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tox5"]
 animations = [{
@@ -43,12 +43,13 @@ scale = Vector2(0.3403491, 0.3066667)
 texture = ExtResource("2_vgqql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=34793521]
-position = Vector2(-1, -1)
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_ce5me")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=540486996]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627632360]
-scale = Vector2(0.50029415, 0.50024563)
+position = Vector2(1, -10)
+scale = Vector2(0.2792402, 0.33345616)
 sprite_frames = SubResource("SpriteFrames_2tox5")
 animation = &"idle"
