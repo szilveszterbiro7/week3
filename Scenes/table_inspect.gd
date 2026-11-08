@@ -7,7 +7,6 @@ extends CanvasLayer
 @onready var paper=$Paper
 @onready var letter=$Letter
 @onready var letter_close=$Letter/LetterClose
-@onready var keyr=false
 @onready var key=$Key
 @onready var dialogue_manager=("/root/Room1/Canvaslayer")
 
@@ -23,7 +22,7 @@ func _ready():
 func open_inspection():
 	show()
 	inspect_active=true
-	if keyr:
+	if GameManager.has_key:
 		key.hide()
 func close_inspection():
 	letter.hide()
@@ -40,8 +39,8 @@ func read_paper():
 func close_letter():
 	letter.hide()
 func collect_key():
-	if not keyr:
-		keyr=true
+	if not GameManager.has_key:
+		GameManager.has_key=true
 		key.hide()
 		close_inspection()
 		print("You picked up the caretakers key")

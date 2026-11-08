@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dy82gv0163pbp"]
+
+[ext_resource type="Texture2D" uid="uid://dk1ywfum780dk" path="res://assets/Room6Floor.png" id="1_gtmx0"]
+[ext_resource type="PackedScene" uid="uid://b3f37gv756mx" path="res://Scenes/player.tscn" id="2_snmim"]
+[ext_resource type="Texture2D" uid="uid://duu7hp65sryqb" path="res://assets/Door2.png" id="3_snmim"]
+[ext_resource type="Script" uid="uid://d1d6io2yhcweq" path="res://Scenes/room_6_exit.gd" id="3_ulsef"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ce5me"]
+a = Vector2(-1, 703)
+b = Vector2(1, -138)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2tox5"]
+a = Vector2(1430, 1)
+b = Vector2(-177, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce5me"]
+size = Vector2(240, 59)
+
+[node name="Room6" type="Node2D" unique_id=105830556]
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=800125418]
+position = Vector2(310.75, 290.25003)
+scale = Vector2(0.48164064, 0.45117188)
+texture = ExtResource("1_gtmx0")
+
+[node name="Floor2" type="Sprite2D" parent="." unique_id=1279058766]
+position = Vector2(926.99994, 291)
+scale = Vector2(0.48164064, 0.45117188)
+texture = ExtResource("1_gtmx0")
+
+[node name="Player" parent="." unique_id=2025846468 instance=ExtResource("2_snmim")]
+position = Vector2(625, 463)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1802283717]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=499528566]
+position = Vector2(3, 0)
+shape = SubResource("SegmentShape2D_ce5me")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1053459529]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1012525199]
+position = Vector2(1235, 16)
+shape = SubResource("SegmentShape2D_ce5me")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=824623389]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=760182568]
+position = Vector2(0, 1)
+shape = SubResource("SegmentShape2D_2tox5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1409146422]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1716592246]
+position = Vector2(0, 577)
+shape = SubResource("SegmentShape2D_2tox5")
+
+[node name="Room6Exit" type="Area2D" parent="." unique_id=1512790794]
+script = ExtResource("3_ulsef")
+
+[node name="Sprite2D" type="Sprite2D" parent="Room6Exit" unique_id=155250929]
+position = Vector2(620.25, 563)
+scale = Vector2(0.31178975, 0.09090911)
+texture = ExtResource("3_snmim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room6Exit" unique_id=687735431]
+position = Vector2(621, 549.5)
+shape = SubResource("RectangleShape2D_ce5me")
+
+[connection signal="body_entered" from="Room6Exit" to="Room6Exit" method="_on_body_entered"]
+[connection signal="body_exited" from="Room6Exit" to="Room6Exit" method="_on_body_exited"]

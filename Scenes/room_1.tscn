@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bwpscbt4kh5sq" path="res://assets/Floor2.png" id="2_m8co2"]
 [ext_resource type="Script" uid="uid://uiy6hvclf6qd" path="res://Scenes/interactable.gd" id="3_isvj2"]
 [ext_resource type="Texture2D" uid="uid://2glt334yx325" path="res://assets/table.png" id="4_uu0ng"]
-[ext_resource type="Script" uid="uid://dv3pbae5mciri" path="res://Scenes/dialouge.gd" id="5_uu0ng"]
+[ext_resource type="PackedScene" uid="uid://c00xprf463ypd" path="res://Scenes/dialogue_ui.tscn" id="5_le3mp"]
 [ext_resource type="Texture2D" uid="uid://cb3myih8xi3jx" path="res://assets/reception.png" id="6_gn78r"]
 [ext_resource type="Script" uid="uid://c34ywk2au2win" path="res://Scenes/bell.gd" id="7_vxiu1"]
 [ext_resource type="Texture2D" uid="uid://d3e703tghr2i1" path="res://assets/Bell.png" id="8_xf8eb"]
 [ext_resource type="Script" uid="uid://dysebp4hkdkcl" path="res://Scenes/table_inspect.gd" id="9_8ybfm"]
 [ext_resource type="Texture2D" uid="uid://b3pa7wi4gs8nj" path="res://assets/Tabletop.png" id="9_xf8eb"]
+[ext_resource type="Script" uid="uid://ddjm8sxvqq423" path="res://Scenes/door.gd" id="11_le3mp"]
+[ext_resource type="Texture2D" uid="uid://0gr6obs6gadu" path="res://assets/Door1.png" id="11_rxny8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0gevy"]
 a = Vector2(-13, 1121)
@@ -34,11 +36,14 @@ radius = 143.01399
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce5me"]
 bg_color = Color(1, 1, 0.8980392, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6n8h"]
+size = Vector2(46.5, 182)
+
 [node name="Room1" type="Node2D" unique_id=2094689066]
 position = Vector2(-286, -410)
 
 [node name="Player" parent="." unique_id=2025846468 instance=ExtResource("1_0gevy")]
-position = Vector2(601, 861)
+position = Vector2(357, 699)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1108526331]
 position = Vector2(-209, 283)
@@ -98,33 +103,7 @@ shape = SubResource("RectangleShape2D_ce5me")
 position = Vector2(1152, 506)
 shape = SubResource("RectangleShape2D_2tox5")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1721621553]
-script = ExtResource("5_uu0ng")
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=907628410]
-custom_minimum_size = Vector2(400, 100)
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -112.0
-offset_right = 30.0
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1611913073]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer" unique_id=1137347143]
-custom_minimum_size = Vector2(400, 100)
-layout_mode = 2
-text = "Table text1"
-vertical_alignment = 1
-autowrap_mode = 3
+[node name="CanvasLayer" parent="." unique_id=239972829 instance=ExtResource("5_le3mp")]
 
 [node name="Reception bell" type="StaticBody2D" parent="." unique_id=1700268965]
 position = Vector2(-66, 341)
@@ -155,10 +134,10 @@ shape = SubResource("CircleShape2D_ce5me")
 script = ExtResource("9_8ybfm")
 
 [node name="Background" type="TextureRect" parent="Tabletop" unique_id=646612380]
-offset_left = 53.0
-offset_top = 65.0
-offset_right = 1109.0
-offset_bottom = 595.0
+offset_left = 80.0
+offset_top = 67.0
+offset_right = 1136.0
+offset_bottom = 597.0
 texture = ExtResource("9_xf8eb")
 expand_mode = 1
 
@@ -222,7 +201,21 @@ offset_right = 1018.0
 offset_bottom = 233.0
 text = "CARETAKER'S KEY"
 
+[node name="Door" type="Area2D" parent="." unique_id=313676862]
+script = ExtResource("11_le3mp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=924384433]
+position = Vector2(255, 582.5)
+scale = Vector2(0.13750002, 0.540625)
+texture = ExtResource("11_rxny8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=150309582]
+position = Vector2(267.75, 586)
+shape = SubResource("RectangleShape2D_x6n8h")
+
 [connection signal="body_entered" from="Table" to="Table" method="_on_body_entered"]
 [connection signal="body_exited" from="Table" to="Table" method="_on_body_exited"]
 [connection signal="body_entered" from="Bell" to="Bell" method="_on_body_entered"]
 [connection signal="body_exited" from="Bell" to="Bell" method="_on_body_exited"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

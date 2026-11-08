@@ -6,12 +6,13 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 var move_direction:  Vector2=Vector2.ZERO
+var tabletop = get_node_or_null("../Tabletop")
 
 func _physics_process(_delta: float) -> void:
 	movement_loop()
 
 func movement_loop() -> void:
-	if get_node("/root/Room1/Tabletop").inspect_active:
+	if tabletop!=null and tabletop.inspect_active:
 		velocity=Vector2.ZERO
 		move_and_slide()
 		return
