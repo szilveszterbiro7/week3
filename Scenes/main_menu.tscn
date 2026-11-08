@@ -14,9 +14,10 @@ script = ExtResource("1_48xlc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=836786013]
 layout_mode = 0
-offset_right = 1150.0
+offset_right = 1154.0
 offset_bottom = 652.0
 texture = ExtResource("2_1ehe0")
+expand_mode = 1
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=599078636]
 layout_mode = 0
@@ -26,10 +27,10 @@ color = Color(0.0060948264, 0.0049350676, 0.004605951, 0.314)
 
 [node name="Title" type="Label" parent="." unique_id=3271242]
 layout_mode = 0
-offset_left = 689.0
-offset_top = -8.0
-offset_right = 1329.0
-offset_bottom = 187.0
+offset_left = 559.0
+offset_top = -11.0
+offset_right = 1199.0
+offset_bottom = 184.0
 theme_override_colors/font_color = Color(0.8618314, 0.5126951, 0.41851303, 1)
 theme_override_font_sizes/font_size = 70
 text = "THE LAST GUEST
@@ -38,10 +39,10 @@ horizontal_alignment = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="." unique_id=1438929496]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 245.0
-offset_right = 915.0
-offset_bottom = 375.0
+offset_left = 295.0
+offset_top = 256.0
+offset_right = 855.0
+offset_bottom = 386.0
 theme_override_constants/separation = 20
 
 [node name="Play" type="Button" parent="MenuButtons" unique_id=214966584]
