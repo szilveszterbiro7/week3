@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b3pa7wi4gs8nj" path="res://assets/Tabletop.png" id="9_xf8eb"]
 [ext_resource type="Script" uid="uid://ddjm8sxvqq423" path="res://Scenes/door.gd" id="11_le3mp"]
 [ext_resource type="Texture2D" uid="uid://0gr6obs6gadu" path="res://assets/Door1.png" id="11_rxny8"]
+[ext_resource type="PackedScene" uid="uid://c0slo0uieccfr" path="res://Scenes/effects.tscn" id="13_33xc7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0gevy"]
 a = Vector2(-13, 1121)
@@ -212,6 +213,8 @@ texture = ExtResource("11_rxny8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=150309582]
 position = Vector2(267.75, 586)
 shape = SubResource("RectangleShape2D_x6n8h")
+
+[node name="Effects" parent="." unique_id=2129801350 instance=ExtResource("13_33xc7")]
 
 [connection signal="body_entered" from="Table" to="Table" method="_on_body_entered"]
 [connection signal="body_exited" from="Table" to="Table" method="_on_body_exited"]

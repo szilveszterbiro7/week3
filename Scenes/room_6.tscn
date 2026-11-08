@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://b3f37gv756mx" path="res://Scenes/player.tscn" id="2_snmim"]
 [ext_resource type="Texture2D" uid="uid://duu7hp65sryqb" path="res://assets/Door2.png" id="3_snmim"]
 [ext_resource type="Script" uid="uid://d1d6io2yhcweq" path="res://Scenes/room_6_exit.gd" id="3_ulsef"]
+[ext_resource type="Texture2D" uid="uid://dhyuoiietqnku" path="res://assets/Bed.png" id="5_4rkv1"]
+[ext_resource type="Texture2D" uid="uid://bk8nee5uxemxu" path="res://assets/Letter.png" id="6_3518m"]
+[ext_resource type="Script" uid="uid://cuthtba0cpkv2" path="res://Scenes/letter.gd" id="6_xjeje"]
+[ext_resource type="Texture2D" uid="uid://x85u3yb5u2pg" path="res://assets/Shadow figure.png" id="8_8ghjf"]
+[ext_resource type="PackedScene" uid="uid://c00xprf463ypd" path="res://Scenes/dialogue_ui.tscn" id="8_xrrhr"]
+[ext_resource type="PackedScene" uid="uid://c0slo0uieccfr" path="res://Scenes/effects.tscn" id="10_g54qe"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ce5me"]
 a = Vector2(-1, 703)
@@ -15,6 +21,12 @@ b = Vector2(-177, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ce5me"]
 size = Vector2(240, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx7ph"]
+size = Vector2(318.8913, 714.0287)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6n8h"]
+size = Vector2(95, 92)
 
 [node name="Room6" type="Node2D" unique_id=105830556]
 
@@ -67,5 +79,41 @@ texture = ExtResource("3_snmim")
 position = Vector2(621, 549.5)
 shape = SubResource("RectangleShape2D_ce5me")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1479368556]
+position = Vector2(114, 178)
+scale = Vector2(0.5738636, 0.49857956)
+texture = ExtResource("5_4rkv1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=127373733]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=585511135]
+position = Vector2(2.613861, 2.0057373)
+scale = Vector2(0.9999993, 0.99999917)
+shape = SubResource("RectangleShape2D_gx7ph")
+
+[node name="Letter" type="Area2D" parent="." unique_id=2066381979]
+script = ExtResource("6_xjeje")
+
+[node name="Sprite2D" type="Sprite2D" parent="Letter" unique_id=1779826467]
+position = Vector2(770, 155)
+scale = Vector2(0.47656274, 0.41406256)
+texture = ExtResource("6_3518m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letter" unique_id=389894598]
+position = Vector2(772.5, 155)
+shape = SubResource("RectangleShape2D_x6n8h")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=477651816]
+visible = false
+position = Vector2(300, 186)
+scale = Vector2(1.375, 1.5416666)
+texture = ExtResource("8_8ghjf")
+
+[node name="CanvasLayer" parent="." unique_id=239972829 instance=ExtResource("8_xrrhr")]
+
+[node name="Effects" parent="." unique_id=2129801350 instance=ExtResource("10_g54qe")]
+
 [connection signal="body_entered" from="Room6Exit" to="Room6Exit" method="_on_body_entered"]
 [connection signal="body_exited" from="Room6Exit" to="Room6Exit" method="_on_body_exited"]
+[connection signal="body_entered" from="Letter" to="Letter" method="_on_body_entered"]
+[connection signal="body_exited" from="Letter" to="Letter" method="_on_body_exited"]
