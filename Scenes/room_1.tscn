@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://ddjm8sxvqq423" path="res://Scenes/door.gd" id="11_le3mp"]
 [ext_resource type="Texture2D" uid="uid://0gr6obs6gadu" path="res://assets/Door1.png" id="11_rxny8"]
 [ext_resource type="PackedScene" uid="uid://c0slo0uieccfr" path="res://Scenes/effects.tscn" id="13_33xc7"]
+[ext_resource type="Script" uid="uid://cr56bddvuoaty" path="res://Scenes/exit.gd" id="14_m1vre"]
+[ext_resource type="Texture2D" uid="uid://nynkyxx4uqfv" path="res://assets/ExitDoor.png" id="14_yt43a"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0gevy"]
 a = Vector2(-13, 1121)
@@ -39,6 +41,9 @@ bg_color = Color(1, 1, 0.8980392, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6n8h"]
 size = Vector2(46.5, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33xc7"]
+size = Vector2(168.5, 50.5)
 
 [node name="Room1" type="Node2D" unique_id=2094689066]
 position = Vector2(-286, -410)
@@ -216,9 +221,23 @@ shape = SubResource("RectangleShape2D_x6n8h")
 
 [node name="Effects" parent="." unique_id=2129801350 instance=ExtResource("13_33xc7")]
 
+[node name="Exit" type="Area2D" parent="." unique_id=519784964]
+script = ExtResource("14_m1vre")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=997267667]
+position = Vector2(801, 331)
+scale = Vector2(0.42881933, 0.36545137)
+texture = ExtResource("14_yt43a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=92619441]
+position = Vector2(785.75, 456.75)
+shape = SubResource("RectangleShape2D_33xc7")
+
 [connection signal="body_entered" from="Table" to="Table" method="_on_body_entered"]
 [connection signal="body_exited" from="Table" to="Table" method="_on_body_exited"]
 [connection signal="body_entered" from="Bell" to="Bell" method="_on_body_entered"]
 [connection signal="body_exited" from="Bell" to="Bell" method="_on_body_exited"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+[connection signal="body_exited" from="Exit" to="Exit" method="_on_body_exited"]

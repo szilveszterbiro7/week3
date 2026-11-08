@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://buuoey4eqetca"]
+
+[ext_resource type="Script" uid="uid://b1qpnragxk5hk" path="res://Scenes/caught_ending.gd" id="1_1mu2x"]
+[ext_resource type="Texture2D" uid="uid://d0vwq880d3oh2" path="res://assets/CaughtEnding.png" id="2_afx8g"]
+
+[node name="CaughtEnding" type="Control" unique_id=1582722220]
+layout_mode = 3
+anchor_right = 1.126
+anchor_bottom = 1.0
+offset_right = -0.15209961
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1mu2x")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1472149273]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 1151.0
+offset_bottom = 641.0
+texture = ExtResource("2_afx8g")
+expand_mode = 1
+
+[node name="CaughtText" type="Label" parent="." unique_id=975709662]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 27.0
+offset_right = 1219.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0.6738727, 0, 0.05408039, 1)
+theme_override_font_sizes/font_size = 70
+text = "YOU GOT CAUGHT"
+
+[node name="Label" type="Label" parent="." unique_id=280679014]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 162.0
+offset_right = 1193.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0.6998101, 0.15890616, 0.15620586, 1)
+theme_override_font_sizes/font_size = 35
+text = "You were never supposed to leave.
+
+To be continued..."
+horizontal_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="." unique_id=1778261674]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 370.0
+offset_right = 1132.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 25
+text = "PLAY AGAIN"
+
+[node name="Exit" type="Button" parent="." unique_id=108137045]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 488.0
+offset_right = 1136.0
+offset_bottom = 562.0
+theme_override_font_sizes/font_size = 25
+text = "EXIT"
