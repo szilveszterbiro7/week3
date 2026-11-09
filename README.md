@@ -75,11 +75,9 @@ You successfully reach the hotel's exit before the countdown reaches zero.
 
 You fail to escape within the time limit, and the mysterious shadow catches you.
 
-
-
 ## My project
 
-This game was made for Terra (Hck Club).
+This game was made for Terra (Hack Club).
 Game developed by SpagettiMaff.
 ---
 
